@@ -141,7 +141,8 @@ def main():
         clock.tick(10)
         snake.handle_keys()
         drawGrid(surface)
-        while (snake.start == 0):
+        screen.blit(surface, (0,0))
+        while (snake.start == 0):           
             welcometxt = welcomefont.render("Press Space to Play",1, random.choice(COLOR))
             screen.blit(welcometxt, (110,230))
             for event in pygame.event.get():
@@ -151,6 +152,7 @@ def main():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
             pygame.display.update()
         else:
             snake.move()
@@ -170,4 +172,5 @@ def main():
             pygame.display.update()
 
     pygame.quit()
+
 main()
